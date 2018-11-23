@@ -54,16 +54,19 @@ with open(rd_path) as raw_data:
 
     print('Shift----------------------------------------------------------------------')
     print(shift)
-
+     
     for i in index:
 
         change.append(profit_losses[i]-shift[i])
+
+    change[0]=0
+
     print('Change-----------------------------------------------------------------------')    
     print(change)
 
     totalmonths= len(months)
     totalp_l = sum(profit_losses)
-    av_change= sum(change[1:])/(len(change)-1)
+    av_change= sum(change)/(len(change)-1)
     maxlist_value= max(change)
     maxlist_date=months[change.index(max(change))]
     minlist_value=min(change)
@@ -74,10 +77,10 @@ with open(rd_path) as raw_data:
     print('-------------------------------------')
 
     print(f'Total Months:  {totalmonths}')
-    print(f'Total:  {totalp_l}')
-    print(f'Average Change:  {av_change}')
-    print(f'Greatest Increase in Profits: {maxlist_date }  {maxlist_value}')
-    print(f'Greatest Increase in Profits: {minlist_date }  ({minlist_value})')
+    print(f'Total:  ${totalp_l:,.2f}')
+    print(f'Average Change:  ${av_change:,.2f}')
+    print(f'Greatest Increase in Profits: {maxlist_date }  ${maxlist_value:,.2f}')
+    print(f'Greatest Increase in Profits: {minlist_date }  $({minlist_value:,.2f})')
 
 
 
