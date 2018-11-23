@@ -19,32 +19,16 @@ with open(rd_path) as raw_data:
     reader=csv.reader(raw_data)
 
     header=next(reader)
-
-    print(f'Header:{header}') 
     
     for row in reader:
 
-        print(row)
-        print(row[0])
-        print(row[1])
-
         date=row[0]
         pl=float(row[1])
-
-        #print(type(date))
-        #print(type(pl))
-
         months.append(date)
+
         profit_losses.append(pl)
         index.append(i)    
         i+=1
-    
-    print(months)
-    print(profit_losses)
-    print(index)
-
-    #print(type(profit_losses))
-    #print(type(index))
 
     shift.append(0)
 
@@ -52,18 +36,12 @@ with open(rd_path) as raw_data:
 
         shift.append(profit_losses[j])    
 
-    print('Shift----------------------------------------------------------------------')
-    print(shift)
-     
     for i in index:
 
         change.append(profit_losses[i]-shift[i])
 
     change[0]=0
-
-    print('Change-----------------------------------------------------------------------')    
-    print(change)
-
+    
     totalmonths= len(months)
     totalp_l = sum(profit_losses)
     av_change= sum(change)/(len(change)-1)
