@@ -11,7 +11,6 @@ change=[]
 
 i=0
 
-
 rd_path= os.path.join('Resources','budget_data.csv')
 
 with open(rd_path) as raw_data:
@@ -22,11 +21,8 @@ with open(rd_path) as raw_data:
     
     for row in reader:
 
-        date=row[0]
-        pl=float(row[1])
-        months.append(date)
-
-        profit_losses.append(pl)
+        profit_losses.append(float(row[1]))
+        months.append(row[0])
         index.append(i)    
         i+=1
 
