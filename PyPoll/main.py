@@ -65,6 +65,36 @@ print(f'Winner:{unique[pct_votes.index(max(pct_votes))]}')
 print('\n')
 
 
+report=open("Elections_Report.txt","w")
+
+report.write('-----------------Electoral Results------------------------------\n')
+
+report.write('\n')
+
+report.write(f'Total Voters: {totalvotes:,}\n')
+
+report.write('\n')
+
+report.write('------------------Votes by Candidate----------------------------\n')
+
+report.write('\n')
+
+for i in range(len(unique)):
+
+    report.write(f'Candidate:{unique[i]}, votes: {pct_votes[i]*100:.2f}% ({votes[i]:,})\n')
+
+report.write('\n')
+
+report.write('---------------------Final result--------------------------------\n')
+
+report.write(f'Winner:{unique[pct_votes.index(max(pct_votes))]}\n')
+
+report.write('\n')
+
+report.close()
+
+
+
 
 
 
