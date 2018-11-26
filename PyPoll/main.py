@@ -39,6 +39,7 @@ totalvotes=len(voterid)
 votes=[candidates.count(candidate) for candidate in unique]
 pct_votes=[candidates.count(candidate)/totalvotes for candidate in unique]
 
+#Print the results in terminal
 
 print('-----------------Electoral Results------------------------------')
 
@@ -64,6 +65,7 @@ print(f'Winner:{unique[pct_votes.index(max(pct_votes))]}')
 
 print('\n')
 
+# Print the results in .txt
 
 report=open("Elections_Report.txt","w")
 
