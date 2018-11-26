@@ -28,6 +28,7 @@ with open(rd_path) as raw_data:
 
     shift.append(0)
 
+
     for j in range(0,len(profit_losses)-1):
 
         shift.append(profit_losses[j])    
@@ -57,7 +58,19 @@ with open(rd_path) as raw_data:
     print(f'Greatest Decrease in Profits: {minlist_date }  ${minlist_value:,.2f}')
 
 
+    report=open('PyBankReport.txt','w')
 
+    report.write('Financial Analysis\n')
+
+    report.write('-------------------------------------\n')
+
+    report.write(f'Total Months:  {totalmonths}\n')
+    report.write(f'Total:  ${totalp_l:,.2f}\n')
+    report.write(f'Average Change:  ${av_change:,.2f}\n')
+    report.write(f'Greatest Increase in Profits: {maxlist_date }  ${maxlist_value:,.2f}\n')
+    report.write(f'Greatest Decrease in Profits: {minlist_date }  ${minlist_value:,.2f}\n')
+  
+    report.close()
 
 
 
